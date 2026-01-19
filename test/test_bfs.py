@@ -1,6 +1,6 @@
 # write tests for bfs
 import pytest
-from search import graph
+from search.graph import Graph
 
 def test_bfs_traversal():
     """
@@ -10,7 +10,25 @@ def test_bfs_traversal():
     that all nodes are being traversed (ie. returns 
     the right number of nodes, in the right order, etc.)
     """
-    pass
+    
+    # input test file "tiny network adjacency list"
+    data = "./data/tiny_network.adjlist"
+    graph_object = Graph(data)
+    G = graph_object.graph
+    
+    # what are we looking for 
+    result = G.bfs('31806696;Luke Gilbert')  
+    
+    # test that graph is being made and reads nodes 
+    assert len(G.nodes()) > 0 
+    
+    # test that both numbers and names as str can be interpreted / handled 
+    assert 'Luke Gilbert' in G.graph.nodes()
+    assert '31806696' in G.graph.nodes()
+    
+    assert isinstance(result, list)
+    assert result[0] == '31806696;Luke Gilbert'
+    
 
 def test_bfs():
     """
