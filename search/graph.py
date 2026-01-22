@@ -4,8 +4,6 @@ import matplotlib.pyplot as plt
 class Graph:
     """
     Class to contain a graph and your bfs function
-    
-    You may add any functions you deem necessary to the class
     """
     def __init__(self, filename: str):
         """
