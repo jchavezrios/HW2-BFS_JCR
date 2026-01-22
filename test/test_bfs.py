@@ -89,3 +89,7 @@ def test_bfs():
     shortpath = nx.shortest_path(woo, 'Atul Butte', '34919578')
     print('short path:', shortpath)
     
+    
+    # test if end node is empty 
+    with pytest.raises(ValueError, match = "End node cannot be empty string"):
+        graph_object_2.bfs('Atul Butte', '')

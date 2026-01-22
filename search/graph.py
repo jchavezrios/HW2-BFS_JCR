@@ -36,9 +36,13 @@ class Graph:
         # for running bfs from a start node that does not exist in the graph
         if start not in self.graph.nodes():
             return None 
+        # raise exception for end node
+        if end == '':
+            raise ValueError("End node cannot be empty string")
         # if end node input and a path does not exist, return None
         if end is not None and end not in self.graph.nodes():
             return None
+        
         
         # initialize lists -----------------------
         # visited for all nodes already ... visited
