@@ -1,5 +1,6 @@
 import networkx as nx
-import collections 
+from collections import *
+import matplotlib.pyplot as plt 
 class Graph:
     """
     Class to contain a graph and your bfs function
@@ -28,43 +29,51 @@ class Graph:
             any other edge cases you can think of
 
         """
+        #edge cases-------------------------------
+        # for an empty graph
+        if len(self.graph.nodes()) == 0:
+            return None 
+        # for running bfs from a start node that does not exist in the graph
+        if start not in self.graph.nodes():
+            return None 
+        # if end node input and a path does not exist, return None
+        if end is not None and end not in self.graph.nodes():
+            return None
         
-        # initialize lists 
+        # initialize lists -----------------------
         # visited for all nodes already ... visited
         visited = []     
         # queue for all that have not been visited 
-        queue = []    
+        queue = deque([start])   
+        #parent node 
+        parent = {start: None}
         
-        # append 'start' node to visited and queue to begin 
-        visited.append(start)
-        queue.append(start)
-        
-        
-        # edge case for an empty graph
-        if len(self.graph.nodes()) == 0:
-            return None 
-        # edge case for running bfs from a start node that does not exist in the graph
-        if start not in self:
-            return None 
-        # edge case for if end node input and a path does not exist, return None
-        if end not in self:
-            return None
-        
-        #
+        # traversal -------------------------------
         # loop through as long as there are still nodes to be checked 
         while queue:
             node = queue.popleft()
+            
             if node not in visited:
                 # adds node to list of checked nodes 
                 visited.append(node)
-            # adds the neighbors that have not been visited to the queue to BE visited
-            for neighbor in self[node]:
-                if neighbor not in visited:
+                
+            # add the neighbors that have not been visited to the queue to BE visited
+            for neighbor in self.graph.neighbors(node):
+                if neighbor not in visited and neighbor not in queue:
                     queue.append(neighbor)
+                    parent[neighbor] = node 
+                    
+            if end is not None and node == end:
+                path = []
+                current = end
+                while current is not None:
+                        path.append(current)
+                        current = parent[current]
+                return path[::-1]
                     
         # if end node does not exist and therefore no path exists 
         if end is not None: 
-            return "None"
+            return None
         # if no end is specified return the output 
         return visited
                 
