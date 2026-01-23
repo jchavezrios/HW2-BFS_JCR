@@ -13,13 +13,13 @@ class Graph:
 
     def bfs(self, start, end=None):
         """
-        TODO: write a method that performs a breadth first traversal and pathfinding on graph G
+        performs a breadth first traversal and pathfinding on graph G
 
         * If there's no end node input, return a list nodes with the order of BFS traversal
         * If there is an end node input and a path exists, return a list of nodes with the order of the shortest path
         * If there is an end node input and a path does not exist, return None
         
-        Be sure that your code can handle possible edge cases, e.g.:
+        can handle possible edge cases, e.g.:
             running bfs traversal on an empty graph
             running bfs traversal on an unconnected graph
             running bfs from a start node that does not exist in the graph
@@ -82,8 +82,3 @@ class Graph:
 
         
 
-
-"""
-References:
-https://pythoninwonderland.wordpress.com/2017/03/18/how-to-implement-breadth-first-search-in-python/
-"""
