@@ -2,8 +2,8 @@
 from search.graph import Graph
 
 
-import pytest
-import networkx as nx 
+import pytest # type: ignore
+import networkx as nx  # type: ignore
 
 
 def test_bfs_traversal():
