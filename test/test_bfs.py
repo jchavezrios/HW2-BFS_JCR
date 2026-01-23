@@ -8,14 +8,6 @@ import networkx as nx
 
 def test_bfs_traversal():
     
-    """
-    TODO: Write your unit test for a breadth-first
-    traversal here. Create an instance of your Graph class 
-    using the 'tiny_network.adjlist' file and assert 
-    that all nodes are being traversed (ie. returns 
-    the right number of nodes, in the right order, etc.)
-    """
-    
     # input test file "tiny network adjacency list"
     data = "./data/tiny_network.adjlist"
     # make graph object and graph
@@ -47,16 +39,7 @@ def test_bfs_traversal():
     #print(f"here is graph G:", (G.nodes.data))
 
 def test_bfs():
-    """
-    TODO: Write your unit test for your breadth-first 
-    search here. You should generate an instance of a Graph
-    class using the 'citation_network.adjlist' file 
-    and assert that nodes that are connected return 
-    a (shortest) path between them.
     
-    Include an additional test for nodes that are not connected 
-    which should return None. 
-    """
     # create instance of Graph class using the bigger data file
     graph_object_2 = Graph("./data/citation_network.adjlist")
     #make and name graph
