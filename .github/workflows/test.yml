@@ -31,7 +31,5 @@ jobs:
           pip install --upgrade pipenv wheel
       - id: cache-pipenv
       
-        uses:actions/cache@v1
-      
       - name: Run unit tests
         run: python -m pytest -v test/*
